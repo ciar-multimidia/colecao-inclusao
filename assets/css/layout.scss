@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import "padroes/predefinicoes";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 1.7;
+	color: $preto;
+	min-height: 100vh;
+	font-family: $fonte-padrao;
+	letter-spacing: 0.04em;
+	position: relative;
+	background-color: $cinza;
+
+	// fundo
+	&:before, &:after {
+		content: ""; position: fixed; display: block;
+		width: 50vw; height: 100vh; top: 0;
+		background-image: url('../img/grafismo.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: left top;
+	}
+
+	&:before { left: 0;}
+	&:after { right: 0; @include transform(scale(-1));}
+
+	& > * {position: relative; z-index: 1;}
+
+	// cores principais
+	@each $livros in $cores-livros{
+		$i: index($cores-livros, $livros);
+		&#livro#{$i}{
+			color: $livros;
+		}
+	}
+
+	@media (max-width: $smart-maior) {
+		font-size: 16px;
+	}
+}
+
+
+@import "layout/portal";

@@ -1,0 +1,194 @@
+/****************************************
+ ----------------------------------------
+ * VARIAVEIS *
+ ----------------------------------------
+ ****************************************/
+/////// CORES VARIAVEIS
+$preto: #212121;
+$cinza: #ededed;
+
+$cores-livros: (
+	(#c10065),
+	(#003669),
+	(#005400),
+	(#c54300),
+	(#57004a)
+);
+
+
+/////// FAMILIAS UTILIZADAS
+$fonte-padrao: 'Roboto',sans-serif;
+$fonte-titulos: 'Roboto Slab',serif;
+
+
+/////// MEDIA QUERIES e TAMANHOS
+$container: 1150px;
+$tablet: 990px;
+$smart-maior: 680px;
+$smart-menor: 500px;
+$celular: 380px;
+$sidebar: 300px;
+
+$artigo: 800px;
+
+
+/////// IMPORTACOES
+@import "../bourbon/bourbon";
+@import "../padroes/reset";
+@import "../padroes/mixins";
+@import "../padroes/fontface";
+@import "../padroes/fancybox";
+
+
+/****************************************
+ ----------------------------------------
+ * AREA UTIL PRINCIPAL DE MATERIAL *
+ ----------------------------------------
+ ****************************************/
+
+.container {
+	width: 100%;
+    max-width: $container;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    position: relative;
+
+    @media (max-width: $container) {
+        max-width: 100%;
+    }
+}
+
+
+/****************************************
+ ----------------------------------------
+ * DEFINICOES E FORMATACOES DE TEXTO *
+ ----------------------------------------
+ ****************************************/
+// links
+a {
+	&:link, &:visited, &:active, &:focus {
+		outline: 0;
+		color: inherit;
+		@include transition(all 0.3s ease-in-out);
+		text-decoration:none;
+	}
+
+	&:hover, &:focus {text-decoration: underline;}
+
+	&:focus { font-weight: bold; }
+}
+b, strong {
+	font-weight: bold;
+	color: inherit;
+}
+u {
+	text-decoration: underline;
+}
+i, em {
+	color: inherit;
+	font-style: italic;
+}
+s, del {
+	text-decoration: line-through;
+}
+
+// paragrafos e formatacoes padrao
+p, article ul, article ol, blockquote, table, figure {
+	margin-bottom: 2em;
+}
+
+
+small {
+	font-size: 80%;
+}
+
+center {
+	text-align: center;
+}
+
+// titulos
+h1, h2, h3, h4, h5 {
+	line-height: 1.3;
+	display: block;
+	color: inherit;
+    font-weight: bold;
+    font-family: $fonte-titulos;
+
+	a {
+		color: inherit !important;
+		text-decoration:none !important;
+	}
+}
+
+h1 {
+    font-size: 2.1em; 
+    @media (max-width: $smart-maior) {font-size: 1.9em; }
+}
+
+h2 { 
+	font-size: 1.7em;
+	@media (max-width: $smart-maior) {font-size: 1.5em; }
+}
+h3 { 
+	font-size: 1.4em;
+	@media (max-width: $smart-maior) {font-size: 1.25em; }
+}
+h4 { 
+	font-size: 1.25em;
+	@media (max-width: $smart-maior) {font-size: 1.2em; }
+}
+h5 { 
+	font-size: 1.1em;
+	@media (max-width: $smart-maior) {font-size: 1em; }
+}
+h6 { font-size: 1em;}
+
+// quote
+blockquote {
+	font-size: 1em;
+	color: inherit;
+
+	p:last-of-type {margin-bottom: 0;}
+}
+
+// divisoria
+hr {
+	display: block;
+	width: 280px;
+	margin: 2em auto;
+    border: 0;
+    padding: 0;
+    height: 7px;
+    background: $cinza;
+    position: relative;
+    overflow: inherit;
+}
+
+input, button, textarea {
+	@include appearance(none);
+	border: 0;
+	outline: 0;
+}
+
+textarea {
+	height: 200px;
+	padding: .5em;
+	line-height: 1.65;
+}
+
+
+// definicoes
+.clear {
+	clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+// alinhamentos
+.esq {text-align: left;}
+.dir {text-align: right;}
+.centralizado {text-align: center;}
+
