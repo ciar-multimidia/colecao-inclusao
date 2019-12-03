@@ -30,19 +30,42 @@ body {
 	&:after { right: 0; @include transform(scale(-1));}
 
 	& > * {position: relative; z-index: 1;}
+	
+	@media (max-width: $smart-maior) { font-size: 16px; }
 
-	// cores principais
+	/****************************************
+	 **** / INICIO DE ADICAO DE CORES / *****
+	 ****************************************/
 	@each $livros in $cores-livros{
 		$i: index($cores-livros, $livros);
 		&#livro#{$i}{
-			color: $livros;
+
+			// area util
+			#area-util {
+				border-color: $livros;
+				header {background: $livros}
+				.infos strong {color: $livros}
+			}
+
+			// detalhes do artigo
+			article {
+				table {border-color: $livros}
+			}
+
+			// botao
+			button.botao {
+				&:focus, &:hover {background: $livros}
+			}
+			
 		}
 	}
+	/****************************************
+	 ***** / FIM DE ADICAO DE CORES / *******
+	 ****************************************/
 
-	@media (max-width: $smart-maior) {
-		font-size: 16px;
-	}
 }
 
-
+@import "layout/componentes";
 @import "layout/portal";
+@import "layout/livro3";
+@import "layout/artigo";

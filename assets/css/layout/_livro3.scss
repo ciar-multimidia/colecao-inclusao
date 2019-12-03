@@ -1,0 +1,36 @@
+// para livro 3
+.portal-livro3 {
+	@include flex(center);
+	@include flex-direction(column);
+	@include align-items(center);
+	min-height: calc(100vh - 190px); 
+
+	@media (max-width: $smart-maior) { min-height: auto }
+}
+
+ul.acesso-livro3 {
+	width: 100%; margin: 0;
+	@include flex(space-between);
+
+	li {
+		width: 48%; padding: 2em;
+		background: white; height: 400px;
+		border-top: 5px solid nth($cores-livros, 3);
+		@include flex(center);
+		@include flex-direction(column);
+		@include align-items(center);
+
+		@media (max-width: $smart-maior) {
+			height: auto; padding: 1.4em;
+
+			// &:first-of-type {margin-bottom: 1em}
+
+			button {width: 100%; display: block; text-align: center;}
+		}
+
+		@media (max-width: $smart-menor) {
+			width: 100%;
+			&:first-of-type {margin-bottom: 1em}
+		}
+	}
+}

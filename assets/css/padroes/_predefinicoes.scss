@@ -1,7 +1,5 @@
 /****************************************
- ----------------------------------------
  * VARIAVEIS *
- ----------------------------------------
  ****************************************/
 /////// CORES VARIAVEIS
 $preto: #212121;
@@ -22,7 +20,7 @@ $fonte-titulos: 'Roboto Slab',serif;
 
 
 /////// MEDIA QUERIES e TAMANHOS
-$container: 1150px;
+$container: 1180px;
 $tablet: 990px;
 $smart-maior: 680px;
 $smart-menor: 500px;
@@ -41,29 +39,7 @@ $artigo: 800px;
 
 
 /****************************************
- ----------------------------------------
- * AREA UTIL PRINCIPAL DE MATERIAL *
- ----------------------------------------
- ****************************************/
-
-.container {
-	width: 100%;
-    max-width: $container;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
-    position: relative;
-
-    @media (max-width: $container) {
-        max-width: 100%;
-    }
-}
-
-
-/****************************************
- ----------------------------------------
  * DEFINICOES E FORMATACOES DE TEXTO *
- ----------------------------------------
  ****************************************/
 // links
 a {
@@ -94,8 +70,8 @@ s, del {
 }
 
 // paragrafos e formatacoes padrao
-p, article ul, article ol, blockquote, table, figure {
-	margin-bottom: 2em;
+p, article ul, article ol, blockquote, .wrap-table, figure {
+	margin-bottom: 1.8em;
 }
 
 
@@ -123,6 +99,7 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-size: 2.1em; 
+    article {font-size: 1.9em;}
     @media (max-width: $smart-maior) {font-size: 1.9em; }
 }
 
@@ -165,6 +142,7 @@ hr {
     overflow: inherit;
 }
 
+// caixas de dialogo
 input, button, textarea {
 	@include appearance(none);
 	border: 0;
@@ -177,6 +155,16 @@ textarea {
 	line-height: 1.65;
 }
 
+// botoes
+button.botao {
+	display: inline-block;
+	background: $preto;
+	font-size: 1em;
+	line-height: 1; color: white;
+	padding: .7em 2em 1em; letter-spacing: 0.09em;
+	font-family: $fonte-titulos; cursor: pointer;
+	@include transition(background 0.15s ease-in-out);
+}
 
 // definicoes
 .clear {
