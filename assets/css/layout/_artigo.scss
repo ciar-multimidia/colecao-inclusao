@@ -11,7 +11,7 @@ article {
 
 	p, ol, ul, figure:not(.grande) {
 		width: $artigo;
-		max-width: 100%; position: relative;
+		max-width: 100%;
 	}
 
 	// figuras
@@ -29,7 +29,8 @@ article {
 
 	// tabelas
 	.wrap-table {
-		overflow-x: auto;
+		overflow-x: auto; margin-bottom: 1.8em;
+
 		table {
 			border-collapse: collapse;
 			border-top: 8px solid $preto;
@@ -58,4 +59,49 @@ article {
 			&.grande {width: 100%;}
 		}
 	}
+
+
+	// citacao
+	blockquote {
+		width: $artigo; max-width: 100%;
+		padding-left: 6em;
+		font-size: .9em;
+		opacity: .8;
+	}
+
+	
+
+	// listas
+	ul, ol {
+		counter-reset: section;
+
+		li {
+			position: relative;
+			margin-top: .5em; padding-left: 3em; 
+
+			&:first-child {margin-top: 0}
+
+			&:before {
+				display: inline-block;
+				width: 18px;
+				line-height: 0.8;
+				content: "\25CF";
+				vertical-align: middle;
+				text-align: center;
+				font-weight: bold;
+				margin-right: .3em;
+
+			}
+		}
+	}
+
+	ol {
+		li:before {
+			line-height: 1.7rem;
+			counter-increment: section; text-align: left;
+			content: counter(section) ".";
+			vertical-align: baseline;
+		}
+	}
+
 }

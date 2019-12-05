@@ -34,3 +34,22 @@ ul.acesso-livro3 {
 		}
 	}
 }
+
+
+// videos
+.mostra-video {
+	width: 100%; margin-top: 2em;
+	@include flex(space-between);
+
+	& > div {
+		width: 48%;
+
+		&:first-of-type {border-top: 5px solid nth($cores-livros, 3);}
+
+		h1 {
+			font-size: 1.6em;
+
+			& + p {margin-top: .5em}
+		}
+	}
+}

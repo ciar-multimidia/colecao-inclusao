@@ -50,7 +50,21 @@ body {
 			// detalhes do artigo
 			article {
 				table {border-color: $livros}
+
+				ol, ul {
+					li:before {color: $livros}
+				}
+
+				p input[type="checkbox"] {
+					& + label { background: $livros }
+				}
 			}
+
+			// detalhes de sumario
+			.sumario ol li a {
+				&:hover, &:focus {border-color: $livros;}
+			}
+
 
 			// botao
 			button.botao {

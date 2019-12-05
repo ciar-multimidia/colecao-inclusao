@@ -97,8 +97,14 @@
 	header {
 		color: white;
 		padding: 2em;
+		background: $preto;
 
 		h2 {font-weight: normal; margin-top: .5em; font-size: 1.4em}
+
+		a.voltar {
+			float: right;
+			@include transform(translateY(-100%));
+		}
 	}
 
 	.infos {
@@ -108,8 +114,93 @@
 	}
 
 	// informacoes
-	article {
-		padding: 2em;
+	article:not(.sumario) {
+		padding: 2em 2em 7em;
+
+	}
+
+}
+
+
+/****************************************
+ * SUMARIO DOS LIVROS *
+ ****************************************/
+.sumario {
+	ol {
+		width: 100%;
+		padding: 2em 0 3em;
+
+		li {
+			display: block;
+			padding: 0 !important; margin: 0;
+			border-top: 2px solid $cinza;
+
+			&:first-of-type {border: 0;}
+			&:before {display: none !important;}
+
+			a {
+				display: block;
+				font-size: 1.3em;
+				font-family: $fonte-titulos;
+			    padding: .5em 1.5em;
+			    border-left: 6px solid white;
+
+			    &:hover, &:focus {border-color: $preto;}
+			}
+		}
 	}
 }
 
+/****************************************
+ * MODAL PARA AS NOTAS *
+ ****************************************/
+.abrir_nota {
+	font-size: 0.8em; cursor: pointer;
+    background: $cinza; color: $preto;
+    padding: .2em .3em; display: inline-block;
+    font-weight: bold; border-radius: 3px;
+	border: 3px solid $cinza;
+
+    &:focus, &:hover {
+		border-color: $preto;
+    }
+}
+
+.modalOverlay {
+	width:100%; height:100%;
+	z-index:10;
+	background-color: black; opacity:0.7;
+	position:fixed;
+	top:0; left:0;
+	display:none; 
+	margin:0; padding:0;	
+}
+
+.modal {
+	width: 500px;
+	max-width: 98%;
+	margin: 0 auto;
+	padding: 1.5em;
+	border: 0; background-color: white;
+	z-index: 11; box-shadow: 0 0 20px transparentize(black,0.6);
+	position:fixed; top: 50%; left:50%;
+	@include transform(translate(-50%,-50%));
+	display:none;
+
+	div[role="document"] {
+		position: relative;
+
+		p {margin: 0;}
+
+		button {
+			font-size: 40px; color: $preto;
+			position: absolute;	right: -22px; top: -22px;
+			width: 27px; height: 27px; line-height: 27px;
+			text-align: center; padding: 0;
+		}
+	}
+}
+
+#explicaNota {
+	position: absolute; width: 0; height: 0; visibility: hidden; overflow: hidden; opacity: 0;
+}
