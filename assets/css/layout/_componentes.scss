@@ -99,6 +99,12 @@
 		padding: 2em;
 		background: $preto;
 
+		mark {
+			color: inherit; background: none;
+			display: block; margin-bottom: 1em; font-weight: normal; letter-spacing: .09em;
+			font-family: inherit; font-size: .8em; text-transform: uppercase;
+		}
+
 		h2 {font-weight: normal; margin-top: .5em; font-size: 1.4em}
 
 		a.voltar {

@@ -40,6 +40,10 @@ body {
 		$i: index($cores-livros, $livros);
 		&#livro#{$i}{
 
+			&:before, &:after {
+				background-image: url('../img/grafismo#{$i}.svg');
+			}
+
 			// area util
 			#area-util {
 				border-color: $livros;

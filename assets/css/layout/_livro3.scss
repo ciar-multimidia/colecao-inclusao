@@ -9,9 +9,10 @@
 }
 
 ul.acesso-livro3 {
-	width: 100%; margin: 0;
+	width: 100%; margin: 0; padding: 1em 0;
 	@include flex(space-between);
 
+	
 	li {
 		width: 48%; padding: 2em;
 		background: white; height: 400px;
@@ -30,7 +31,37 @@ ul.acesso-livro3 {
 
 		@media (max-width: $smart-menor) {
 			width: 100%;
-			&:first-of-type {margin-bottom: 1em}
+			&:last-of-type {margin-top: 1em}
+		}
+
+
+		&.nome {
+			width: 100%; background: none; border:0; padding: 0 0 2em;
+			@include flex(space-between); height: auto;
+			@include flex-wrap(nowrap);
+			@include align-items(flex-end);
+
+			img {width: 280px; height: auto; margin:0}
+
+			h1 {
+				margin: 0 0 0 1em;
+				color: nth($cores-livros, 3);
+				text-align: left;
+
+				span {
+					display: block;
+					font-size: 1rem; text-transform: uppercase;
+					font-family: $fonte-padrao;
+				}
+			}
+
+			@media (max-width: $smart-menor) {
+				@include flex(center);
+				img {width: 50%;}
+				h1 {
+					width: 100%; text-align: center; margin: .5em 0 0;
+				}
+			}
 		}
 	}
 }
@@ -50,6 +81,14 @@ ul.acesso-livro3 {
 			font-size: 1.6em;
 
 			& + p {margin-top: .5em}
+		}
+
+		@media (max-width: $smart-menor) {
+			width: 100%; 
+			
+			&:first-of-type {@include order(2);}
+			&:last-of-type {@include order(1);}
+
 		}
 	}
 }
