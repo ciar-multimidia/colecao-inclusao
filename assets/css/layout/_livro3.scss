@@ -73,9 +73,9 @@ ul.acesso-livro3 {
 	@include flex(space-between);
 
 	& > div {
-		width: 48%;
+		width: 35%;
 
-		&:first-of-type {border-top: 5px solid nth($cores-livros, 3);}
+		&:first-of-type {width: 62%; border-top: 5px solid nth($cores-livros, 3);}
 
 		h1 {
 			font-size: 1.6em;
@@ -84,7 +84,7 @@ ul.acesso-livro3 {
 		}
 
 		@media (max-width: $smart-menor) {
-			width: 100%; 
+			width: 100% !important; 
 			
 			&:first-of-type {@include order(2);}
 			&:last-of-type {@include order(1);}
