@@ -185,7 +185,9 @@
 .modal {
 	width: 500px;
 	max-width: 98%;
+	max-height: 98vh;
 	margin: 0 auto;
+	overflow-y: auto;
 	padding: 1.5em;
 	border: 0; background-color: white;
 	z-index: 11; box-shadow: 0 0 20px transparentize(black,0.6);
@@ -195,6 +197,7 @@
 
 	div[role="document"] {
 		position: relative;
+		font-size: .9em;
 
 		p {margin: 0;}
 
