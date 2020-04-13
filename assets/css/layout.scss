@@ -47,7 +47,7 @@ body {
 			// area util
 			#area-util {
 				border-color: $livros;
-				header {background: $livros}
+				header, footer {background: $livros}
 				.infos strong {color: $livros}
 			}
 
