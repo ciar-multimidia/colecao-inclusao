@@ -62,6 +62,16 @@ body {
 				p input[type="checkbox"] {
 					& + label { background: $livros }
 				}
+
+				&:not(.sumario) a {
+					&:link, &:visited, &:active, &:focus {
+						color: $livros; word-break: break-all;
+						box-shadow: inset 0 -2px 0 transparentize($livros,0.7);
+						text-decoration: none !important;
+					}
+
+					&:hover, &:focus { box-shadow: inset 0 -19px 0 transparentize($livros,0.9);}
+				}
 			}
 
 			// detalhes de sumario
