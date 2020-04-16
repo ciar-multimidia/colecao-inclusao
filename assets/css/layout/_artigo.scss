@@ -4,10 +4,11 @@ article {
 	// h4 {font-size: 1em; font-weight: bold}
 
 	h1, h2, h3, h4, h5, h6 {
-		& + p, & + ol, & + ul, & + & {
+		& + p, & + ol, & + ul {
 			margin-top: 1.8em;
 		}
 	}
+	h2 + h3, h3 + h4, h4 + h5 { margin-top: .5em; }
 
 	h2, h3, h4, h5, h6 {
 		margin-top: 3em;
@@ -28,6 +29,8 @@ article {
 		}
 
 		&.grande {width: 100%;}
+		&.alinha-esquerda { width: auto; float: left; margin: 0 .6em 0 0; }
+		&.alinha-direita { width: auto; float: right; margin: 0 0 0 .6em; }
 	}
 
 
