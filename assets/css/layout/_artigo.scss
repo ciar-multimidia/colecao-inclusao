@@ -14,23 +14,31 @@ article {
 		margin-top: 3em;
 	}
 
-	h2, h3, h4, h5, h6, p, ol, ul, figure:not(.grande) {
+	h2, h3, h4, h5, h6, p, ol, ul {
 		width: $artigo;
 		max-width: 100%;
+		display: block;
 	}
 
 	// figuras
 	figure {
 
+		display: inline-block;
+
+
 		figcaption {
 			padding: .6em; font-size: .9em;
 			border-bottom: 4px solid $cinza;
-			p {margin: 0;}
+			p {margin: 0; width: 100%;}
 		}
 
 		&.grande {width: 100%;}
-		&.alinha-esquerda { width: auto; float: left; margin: 0 .6em 0 0; }
-		&.alinha-direita { width: auto; float: right; margin: 0 0 0 .6em; }
+		&.alinha-esquerda { width: auto; float: left; margin: 0 .6em 0 0; text-align: left;}
+		&.alinha-direita { width: auto; float: right; margin: 0 0 0 .6em; text-align: right;}
+
+		&.galeria {
+			img + img {margin-top: 1em; display: block;}
+		}
 	}
 
 
