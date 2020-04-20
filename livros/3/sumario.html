@@ -7,6 +7,7 @@
 	<base href="../../index.html">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/print.css">
 </head>
 <body id="livro3">
 
@@ -15,6 +16,7 @@
 		<nav>
 			<a href="index.html#sobre">Sobre o ebook</a>
 			<a href="livros/3/sumario.html" class="sumario"><span>Acessar Sumário</span></a>
+			<button onclick="window.print()" class="imprimir" role="button"><span>Imprimir</span></button>
 		</nav>
 	</header>
 
@@ -41,6 +43,11 @@
 			</ol>
 
 		</article>
+
+		<footer>
+	      <a href="javascript:history.back()"><span aria-hidden="true">&larr;</span> Voltar ao ebook</a>
+	      <a href="livros/3/cap01.html#ficha-tecnica">Ficha Técnica</a>
+	    </footer>  
 
 	</main>
 	

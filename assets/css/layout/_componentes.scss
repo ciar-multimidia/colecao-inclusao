@@ -46,10 +46,9 @@
 		@include flex-wrap(nowrap);
 		@include align-items(flex-end);
 
-		a.sumario {
+		a.sumario, button.imprimir {
 			display: inline-block; width: 41px; height: 37px; line-height: 37px;
-			background: url(../img/icone-menu.svg) no-repeat center center / 34px;
-			padding: 2px;
+			padding: 2px; cursor: pointer;
 			position: relative; overflow: hidden; margin-left: 1em;
 
 			span {position: absolute; top: -999px; left: 999px;}
@@ -58,9 +57,12 @@
 				outline: 2px solid white; 
 			}
 		}
+
+		a.sumario {background: url(../img/icone-menu.svg) no-repeat center center / 34px;}
+		button.imprimir {background: url(../img/icone-imprimir.svg) no-repeat center center / 30px;}
 	}
 
-	@media (max-width: $smart-menor) {
+	@media (max-width: $smart-maior) {
 		height: auto; @include flex-wrap(wrap);
 		padding-top: 1.6em; padding-bottom: 1em; margin-bottom: 0;
 
@@ -82,6 +84,8 @@
 
 				span {position: relative; top: initial; left: initial}
 			}
+
+			button.imprimir {display: none;}
 		}
 	}
 }
@@ -191,7 +195,7 @@
 			text-transform: uppercase;
 		}
 
-		@media (max-width: $smart-menor) {
+		@media (max-width: $smart-maior) {
 			width: 100%;
 		}
 	}
