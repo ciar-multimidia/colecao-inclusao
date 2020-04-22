@@ -69,26 +69,28 @@ ul.acesso-livro3 {
 
 // videos
 .mostra-video {
-	width: 100%; margin-top: 2em;
+	width: 100%; margin-top: 3em;
 	@include flex(space-between);
 
-	& > div {
-		width: 35%;
+	.descricao {
+		width: 35%;	
 
-		&:first-of-type {width: 62%; border-top: 5px solid nth($cores-livros, 3);}
-
-		h1 {
-			font-size: 1.6em;
+		h2 {
+			font-size: 1.6em; margin-top: 0;
 
 			& + p {margin-top: .5em}
 		}
+	} 
 
-		@media (max-width: $smart-menor) {
-			width: 100% !important; 
-			
-			&:first-of-type {@include order(2);}
-			&:last-of-type {@include order(1);}
+	.wrap-video {
+		width: 62%; border-top: 5px solid nth($cores-livros, 3);
+	}
 
-		}
+	@media (max-width: $smart-menor) {
+		width: 100% !important; 
+		
+		.descricao {@include order(2);}
+		.wrap-video {@include order(1);}
+
 	}
 }
