@@ -80,15 +80,16 @@
 		}
 
 		nav {
-			width: 100%; margin-top: 1em;
+			width: 100%; margin-top: 1.5em;
 			text-align: center;
+
 			a.sumario {
-				width: auto; height: auto; line-height: inherit; padding: 0;
-				background: none; overflow: initial; white-space: nowrap;
+				width: auto; height: auto; line-height: inherit; padding: 0 0 0 35px; margin: 0;
+				background-size: 25px; background-position: left bottom; overflow: initial; white-space: nowrap;
 
 				&:focus, &:hover {outline: 0}
 
-				&:before {content: '\2022'; display: inline-block; margin-right: 14px;}
+				// &:before {content: '\2022'; display: inline-block; margin-right: 14px;}
 
 				span {position: relative; top: initial; left: initial}
 			}
