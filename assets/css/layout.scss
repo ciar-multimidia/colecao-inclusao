@@ -40,6 +40,10 @@ body {
 		$i: index($cores-livros, $livros);
 		&#livro#{$i}{
 
+			#cabecalho {
+				border-bottom-color: $livros;
+			}
+
 			&:before, &:after {
 				background-image: url('../img/grafismo#{$i}.svg');
 			}
