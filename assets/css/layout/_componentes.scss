@@ -210,15 +210,61 @@
 	}
 }
 
+.catalografica {
+	width: 100%;
+	max-width: 800px;
+	font-size: 0.8em;
+	border: 1px solid $cinza;
+	margin: 2em auto 0; 
 
+	img {
+		width: 100%; height: auto;
+	}
 
-/****************************************
- * PAGINACAO *
- ****************************************/
-// span.pagina {display: none;}
+	p { margin: 0 0 20px; }
 
+	.titulo {
+		position: relative; 
+		width: 100%; 
+		font-size: 1.1em; 
+		border-bottom: 1px solid; 
+		padding: 10px 25px;
+		background: black;
+		color: white;
+		font-weight: bold;
+		text-align: center;
+	}
 
+	.codigo {
+		position: relative; 
+		width: 10%; 
+		float: left; 
+		padding: 25px 0px 25px 25px;
+		font-size: 1.1em;
+	}
+	
+	.dados {
+		position: relative; 
+		width: 88%; 
+		float: right; 
+		text-align: left; 
+		padding: 25px 25px 25px 0;
+		.cdu {
+			text-align: right;
+		}
+	}
 
+	&:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	& + .biblio-responsavel{
+		text-align: center;
+		margin-top: 0.5em;
+	}
+}
 
 /****************************************
  * MODAL PARA AS NOTAS *
