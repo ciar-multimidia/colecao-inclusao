@@ -46,6 +46,15 @@ article {
 
 			img {display: block; text-align: center; margin-left: auto; margin-right: auto}
 		}
+
+		&.figura-menor {
+			width: $artigo;
+			max-width: 100%;
+
+			img {display: block; margin: 0 auto; text-align: center;}
+
+			figcaption p {text-align: center;}
+		}
 	}
 
 	.galeria-horizontal {

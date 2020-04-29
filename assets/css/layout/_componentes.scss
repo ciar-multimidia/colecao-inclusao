@@ -160,6 +160,7 @@
  * SUMARIO DOS LIVROS *
  ****************************************/
 .sumario {
+
 	ol {
 		width: 100%;
 		padding: 2em 0 3em;
@@ -180,9 +181,18 @@
 			    border-left: 6px solid white;
 
 			    &:hover, &:focus {border-color: $preto;}
+
+			    h2 {
+			    	padding: 0; margin: 0;
+			    	width: 100%;
+
+			    	span { font-size: .7em; display: block; }
+			    }
 			}
 		}
 	}
+
+	h2 + ol { padding-top: .5em }
 }
 
 
