@@ -186,6 +186,28 @@
 }
 
 
+/****************************************
+ * PAGINACAO *
+ ****************************************/
+span.pagina {
+    text-align: right;
+    padding: 0; position: relative;
+    font-size: .8em;
+    display: block;
+    margin-bottom: 1rem;
+    color: lighten($preto,30%);
+
+    // &:before { content: "Pagina"; margin-right: 3px; }
+
+    &:after {
+    	width: calc(100% - 100px); height: 1px;
+    	background-color: $cinza; left: 0px;
+    	top: 50%; position: absolute;
+    	display: block; content: "";
+    }
+}
+
+
 
 /****************************************
  * FICHA TECNICA *
