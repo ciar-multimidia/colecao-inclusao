@@ -82,12 +82,16 @@
 
 		}
 
-		h2 {margin: 0 !important; font-size: 2.3em; text-align: center; width: 100%; max-width: 100%; position: relative;}
+		h2 {
+			margin: 0 !important; font-size: 2.3em; text-align: center; width: 100%; max-width: 100%; position: relative; 
+
+			@media (max-width: $smart-maior) { font-size: 1.7em; }
+		}
 
 		figure {
 			position: absolute; top: 0; left: 50%;
 			@include transform(translate(-50%,-50%));
-			width: 120px; height: 120px; border-radius: 50%;
+			width: 120px !important; height: 120px !important; border-radius: 50%;
 			border: 7px solid $preto;
 			padding: 10px; background: white;
 
@@ -111,6 +115,8 @@
 
 			& + p { margin-top: .3em}
 		}
+
+		@media (max-width: $smart-maior) { column-count: 1; }
 	}
 }
 

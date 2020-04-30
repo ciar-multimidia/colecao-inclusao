@@ -75,7 +75,7 @@
 		padding-top: 1.6em; padding-bottom: 1em; margin-bottom: 0;
 
 		a.marca {
-			width: 100%;
+			width: 100%; font-size: 1.8em;
 			text-align: center;
 		}
 
@@ -124,6 +124,12 @@
 			float: right;
 			@include transform(translateY(-100%));
 		}
+
+		@media (max-width: $smart-menor) {
+			padding: 1em;
+
+			mark { font-size: .7em; }
+		}
 	}
 
 	.infos {
@@ -135,6 +141,11 @@
 	// informacoes
 	article:not(.sumario) {
 		padding: 2em 2em 4em;
+
+		@media (max-width: $smart-menor) {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
 	}
 
 
@@ -145,12 +156,21 @@
 		font-weight: bold;
 		font-family: $fonte-titulos;
 		@include flex(space-between);
+		@include flex-wrap(nowrap);
 		text-transform: uppercase;
 		letter-spacing: 0.09em;
 
 		a:nth-of-type(1) {@include order(1)}
 		a:nth-of-type(2) {@include order(3)}
 		a:nth-of-type(3) {@include order(2)}
+
+		@media (max-width: $smart-menor) {
+			padding: 1em; font-size: .9em;
+		}
+
+		@media (max-width: $celular) {
+			font-size: .7em;
+		}
 	}
 
 }
@@ -180,13 +200,15 @@
 			    padding: .5em 1.5em;
 			    border-left: 6px solid white;
 
+			    @media (max-width: $smart-menor) { padding-left: 1em; padding-right: 1em; font-size: 1em; }
+
 			    &:hover, &:focus {border-color: $preto;}
 
 			    h2 {
-			    	padding: 0; margin: 0;
-			    	width: 100%;
+			    	padding: 0; margin: 0; line-height: 1.4;
+			    	width: 100%; font-size: 1.2em;
 
-			    	span { font-size: .7em; display: block; }
+			    	span { font-size: .85em; display: block; }
 			    }
 			}
 		}
