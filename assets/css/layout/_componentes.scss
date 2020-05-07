@@ -320,6 +320,26 @@ span.pagina {
 	}
 }
 
+
+.creative-commons {
+	margin-top: 4em;
+	
+	background: lighten($cinza,3%);
+	padding: 2em 20px;
+	position: relative;
+	
+	&:before {
+		border: 1px solid darken($cinza,2%);
+		width: calc(100% + 4em); background: lighten($cinza,3%);
+		height: 100%; position: absolute; top: 0; left: 50%;
+		@include transform(translateX(-50%)); content: '';
+
+	}
+
+	p { margin-right: auto; font-size: .8em; margin-left: auto; text-align: center; position: relative;}
+}
+
+
 /****************************************
  * MODAL PARA AS NOTAS *
  ****************************************/
