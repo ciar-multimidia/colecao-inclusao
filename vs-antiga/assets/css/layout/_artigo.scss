@@ -1,0 +1,157 @@
+article {
+	// h2 {font-size: 1.35em; font-weight: bold}
+	// h3 {font-size: 1.2em; font-weight: bold}
+	// h4 {font-size: 1em; font-weight: bold}
+
+	h1, h2, h3, h4, h5, h6 {
+		& + p, & + ol, & + ul {
+			margin-top: 1.8em;
+		}
+	}
+	h2 + h3, h3 + h4, h4 + h5 { margin-top: .5em; }
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 3em;
+	}
+
+	h2, h3, h4, h5, h6, p, ol, ul {
+		width: $artigo;
+		max-width: 100%;
+		display: block;
+	}
+
+	// figuras
+	figure {
+
+		display: inline-block;
+
+
+		figcaption {
+			padding: .6em; font-size: .9em;
+			border-bottom: 4px solid $cinza;
+			p {margin: 0; width: 100%; max-width: $artigo}
+		}
+
+		&.grande {width: 100%;}
+		&.alinha-esquerda { width: auto; float: left; margin: 0 2em 0 0; text-align: left;}
+		&.alinha-direita { width: auto; float: right; margin: 0 0 0 2em; text-align: right;}
+
+		&.galeria {
+			img + img {margin-top: 1em; display: block;}
+		}
+
+		@media (max-width: $smart-maior) {
+			width: 100% !important; float: none !important;
+			margin: 0 auto 2em !important;
+
+			img {display: block; text-align: center; margin-left: auto; margin-right: auto}
+		}
+
+		&.figura-menor {
+			width: $artigo;
+			max-width: 100%;
+
+			img {display: block; margin: 0 auto; text-align: center;}
+
+			figcaption p {text-align: center;}
+		}
+	}
+
+	.galeria-horizontal {
+		@include flex(center);
+
+		figure {
+			width: 50%; margin-top: 2em;
+			padding: 0 1em;
+
+			img { display: block; margin-left: auto; margin-right: auto; }
+
+			figcaption {border: 0;}
+
+
+			@media (max-width: $smart-maior) {
+				width: 100%; padding: 0;
+			}
+
+		}
+	}
+
+
+	// tabelas
+	.wrap-table {
+		overflow-x: auto; margin-bottom: 1.8em;
+
+		table {
+			border-collapse: collapse;
+			border-top: 8px solid $preto;
+			border-bottom: 4px solid $preto;
+			min-width: $artigo; width: $artigo; max-width: 100%;
+
+			caption {
+				padding: .6em; font-size: .9em;
+				border-top: 4px solid $cinza; text-align: left;
+			}
+
+			tr {
+				border-bottom: 2px solid $cinza;
+				border-right: 2px solid $cinza;
+
+				th {
+					background: $cinza; border-left: 2px solid $cinza;
+					font-weight: bold; text-align: left;
+				}
+
+				td, th {padding: 10px;}
+
+				td {border-left: 2px solid $cinza}
+			}
+
+			&.grande {width: 100%;}
+		}
+	}
+
+
+	// citacao
+	blockquote {
+		width: $artigo; max-width: 100%;
+		padding-left: 6em;
+		font-size: .9em;
+		opacity: .8;
+	}
+
+	
+
+	// listas
+	ul, ol {
+		counter-reset: section;
+
+		li {
+			position: relative;
+			margin-top: .5em; padding-left: 3em; 
+
+			&:first-child {margin-top: 0}
+
+			&:before {
+				display: inline-block;
+				width: 18px;
+				line-height: 0.8;
+				content: "\25CF";
+				vertical-align: middle;
+				text-align: center;
+				font-weight: bold;
+				margin-right: .3em;
+
+			}
+		}
+	}
+
+	ol {
+		li:before {
+			line-height: 1.7rem;
+			counter-increment: section; text-align: left;
+			content: counter(section) ".";
+			vertical-align: baseline;
+		}
+	}
+
+}

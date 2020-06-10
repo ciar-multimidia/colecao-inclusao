@@ -1,79 +1,123 @@
-#portal {
-	padding-top: 3em;
-	padding-bottom: 2em;
+.sessao-portal {
+	min-height: 100vh;
+	background: white;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(column);	
+    @include justify-content(center);
+	padding: 2em 0;	
+}
 
-	@media (max-width: $smart-menor) { padding-top: 1em; padding-bottom: 1em; }
+#portal {
+	
+	&:before, &:after {
+		content: ""; position: absolute;
+		bottom: 2em;
+	}
+
 
 	header {
-		margin: .5em 0;
-		background: white;
-		padding: 2em;
-		border-left: 10px solid $preto;
-		border-right: 10px solid $preto;
+		@include align-self(center);
+		margin: 0 auto;
+		width: 90%;
+		max-width: 560px;
+		position: relative;
 
-		h1, a {
-			width: $artigo;
-			max-width: 100%;
-			margin: 0 auto;
-			display: block;
+		svg {
+			position: relative;
+			@include transform-origin(center center);
+			@include animation(rodarBola 10s linear 0s infinite);
+
+			@include keyframes(rodarBola) {
+			    from {@include transform(rotate(0));}
+			    to {@include transform(rotate(360deg));}
+			}
+
+			g.cores path {
+				fill: $preto;
+				@include transition(fill 0.2s ease-in-out);
+			}
 		}
 
-		h1 {
-			font-size: 4em;
+		&:hover {
+			svg g.cores path {
+				&.vermelho {fill: nth($cores-livros, 1);}
+				&.azul {fill: nth($cores-livros, 2);}
+				&.verde {fill: nth($cores-livros, 3);}
+				&.amarelo {fill: nth($cores-livros, 4);}
+				&.roxo {fill: nth($cores-livros, 5);}
+			}
+		}
 
-			@media (max-width: $smart-menor) { font-size: 2.8em; }
+		.acesso {
+			width: 100%;
+			position: absolute;
+			padding: 2em; top: 50%; left: 0;
+			@include transform(translateY(-50%));
+
+			h1, a {
+				width: 100%;
+				margin: 0 auto;
+				display: block;
+				text-align: center; 
+				line-height: 1;
+				position: relative;
+			}
+
+			h1 {
+				font-size: 2.6em;
+				font-weight: normal;
+
+				span { font-size: 2em; display: block;}
+
+				@media (max-width: $smart-menor) { font-size: 1.8em; }
+			}
+
+			a {
+				margin-top: 2em;
+
+				&:after {
+					content: '\2198'; color: white;
+					display: inline-block; padding: .2em;
+					background: $preto; font-size: .7em;
+				    vertical-align: bottom; margin-left: .7em;
+				}
+			}
 		}
 	}
 
 	nav {
-		& > a {
-			margin: .5em 0;
-			background: white;
-			display: block;
-			position: relative;
-			padding: 0 2em;
+		padding: 2em; position: absolute; width: 100%;
+		top: 0; left: 0; font-size: .8em;
 
-			// grafismo do link
-			&:before, &:after {
-				width: 10px; height: 100%;
-				position: absolute; top: 0;
-				content: ""; background: $preto;
-				@include transition(all 0.3s ease-in-out);
-			}
+		ul {
+			@include flex(space-between);
 
-			&:before {left: 0;}
-			&:after {right: 0;}
-
-			&:hover, &:focus {
-				font-weight: bold;
-				&:before, &:after {width: 30px;}
-				&:before {left: -20px; border-top-left-radius: 50%; border-bottom-left-radius: 50%;}
-				&:after {right: -20px; border-top-right-radius: 50%; border-bottom-right-radius: 50%;}
-			}
-
-			// titulos
-			& > span {
-				width: $artigo;
-				max-width: 100%;
-				margin: 0 auto;
-				display: block;
-				padding: 2em 0;
-
-				span {
-					display: block;
-					font-size: 1.6em;
-					font-family: $fonte-titulos;
-					font-weight: bold;
+			li {
+				width: 50%;
+				margin-bottom: 1em;
+				font-family: $fonte-titulos;
+				text-transform: uppercase;
+				
+				&:nth-of-type(odd) { 
+					text-align: left;
+					a { border-left: 30px solid; padding-left: 20px }
 				}
-			}
+				&:nth-of-type(even) { 
+					text-align: right;
+					a { border-right: 30px solid; padding-right: 20px; }
+				}
 
-			// definicao automatica de ordem de cores
-			@each $livros in $cores-livros{
-				$i: index($cores-livros, $livros);
-				&:nth-of-type(#{$i}) {
-					&:focus, &:hover {
-						text-decoration-color: $livros;
-						&:before, &:after {background: $livros}
+				a { display: block; @include transition(border-color 0.2s ease-in-out); }
+
+
+				// definicao automatica de ordem de cores
+				@each $livros in $cores-livros{
+					$i: index($cores-livros, $livros);
+					&:nth-of-type(#{$i}) a {
+						&:focus, &:hover {
+							border-color: $livros;
+						}
 					}
 				}
 			}
@@ -81,33 +125,7 @@
 	}
 }
 
-#sobre {
-	background: $preto;
-	color: white;
-	padding-top: 3em;
-	padding-bottom: 2em;
-	@include fundocompleto($preto);
 
-	& > div {
-		padding: 1em 2em;
-		border: 10px solid black;
-		border-top: 0;
-		border-bottom: 0;
-		margin-bottom: 2.5em;
+#livros {
 
-		h1 {margin-bottom: .3em;}
-
-		p {
-			width: $artigo;
-			max-width: 100%;
-		}
-	}
-
-	// definicao automatica de ordem de cores
-	@each $livros in $cores-livros{
-		$i: index($cores-livros, $livros);
-		& > div:nth-of-type(#{$i}) {
-			border-color: $livros;
-		}
-	}
 }

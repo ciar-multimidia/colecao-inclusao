@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-
+    /////////////////////// NOTA RODAPE
+    
     var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]",
         focusedElementBeforeModal,
         modais = $('.modal'),
@@ -140,5 +141,15 @@ jQuery(document).ready(function($) {
         // set focus back to element that had it before the modal was opened
         focusedElementBeforeModal.focus();
     }
+
+
+    /////////////////////// OUTRAS FUNCOES
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
 
 });

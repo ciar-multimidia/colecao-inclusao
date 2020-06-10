@@ -6,11 +6,11 @@ $preto: #212121;
 $cinza: #ededed;
 
 $cores-livros: (
-	(#c10065),
-	(#003669),
-	(#005400),
-	(#c54300),
-	(#57004a)
+	(#FF4446),
+	(#12BBFF),
+	(#58D616),
+	(#FFD301),
+	(#AB5DFF)
 );
 
 
@@ -46,11 +46,11 @@ a {
 	&:link, &:visited, &:active, &:focus {
 		outline: 0;
 		color: inherit;
-		@include transition(all 0.3s ease-in-out);
+		@include transition(color 0.3s ease-in-out, box-shadow 0.3s ease-in-out);
 		text-decoration:none;
 	}
 
-	&:hover, &:focus {text-decoration: underline;}
+	&:hover, &:focus {text-decoration: underline; font-weight: bold;}
 
 	&:focus { font-weight: bold; }
 }

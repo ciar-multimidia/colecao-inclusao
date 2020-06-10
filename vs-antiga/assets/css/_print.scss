@@ -1,0 +1,109 @@
+@media print {
+
+    @page { margin: 2cm; size: A4; }
+
+    body {
+        color: black;
+        font-size: 11pt;
+        line-height: 1.5;
+        min-height: initial;
+        text-align: justify;
+        @include hyphens(auto);
+        background: transparent;
+
+        &:before, &:after {display: none;}
+
+
+        @each $livros in $cores-livros{
+            $i: index($cores-livros, $livros);
+            &#livro#{$i}{
+                // area util
+                #area-util {
+                    header {
+                        background: transparent; color: $livros;
+                    }
+                    .infos strong {color: $livros}
+                }
+            }
+        }
+    }
+
+    main {margin-bottom: 4cm}
+    .container { max-width: 100%; }
+
+    #cabecalho {
+        height: auto;
+        @include flex(center);
+        background: transparent;
+        color: inherit;
+        padding: 0 0 2cm;
+
+        a.marca { padding: 0; font-size: 3em}
+
+        &:before, nav {display: none;}
+    }
+
+    #area-util {
+        background: transparent;
+        border: none;
+
+        header {
+            padding: 0;
+
+            mark {display: none;}
+        }
+
+        .infos {
+            border: 0;
+        }
+
+        article {
+            padding: 0 !important;
+
+            h1, h2, h3, h4, h5, h6 {
+                text-align: left;
+            }
+
+            h2, h3, h4, h5, h6, p, ol, ul {
+                width: 100%;
+            }
+
+            .wrap-table {
+                table {
+                    min-width: initial; width: 100%;
+                    border: 0; text-align: left;
+
+                    tr {page-break-inside: avoid;}
+                }
+            }
+
+            figure, .galeria-horizontal figure {page-break-inside: avoid;}
+        }
+
+        footer {display: none;}
+    }
+
+    span.pagina {display: none;}
+
+    .modal {
+        display: block; padding: .5cm 0;
+        background: transparent; page-break-inside: avoid;
+        position: relative; top: initial; left: initial;
+        width: 100%; border-top: 4px solid $cinza;
+        max-width: initial; max-height: initial; 
+        overflow: hidden; box-shadow: none;
+        @include transform(translate(0,0));
+
+        &[aria-label]:before {
+            padding: 0; font-weight: bold;
+            font-size: inherit;
+            content: attr(aria-label); display: block;
+        }
+
+        div[role="document"] {
+            font-size: inherit;
+
+            button {display: none;}
+        }
+    }
+}

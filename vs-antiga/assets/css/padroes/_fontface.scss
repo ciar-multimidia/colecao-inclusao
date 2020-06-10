@@ -1,0 +1,54 @@
+/////// ROBOTO PADRAO
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/subset-Roboto-Italic.woff2') format('woff2'),
+        url('fonts/subset-Roboto-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/subset-Roboto-Bold.woff2') format('woff2'),
+        url('fonts/subset-Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/subset-Roboto-BoldItalic.woff2') format('woff2'),
+        url('fonts/subset-Roboto-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/subset-Roboto-Regular.woff2') format('woff2'),
+        url('fonts/subset-Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/////// ROBOTO SLAB
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('fonts/subset-RobotoSlab-Regular.woff2') format('woff2'),
+        url('fonts/subset-RobotoSlab-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('fonts/subset-RobotoSlab-Bold.woff2') format('woff2'),
+        url('fonts/subset-RobotoSlab-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+

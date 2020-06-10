@@ -10,7 +10,7 @@ body {
 	font-size: 18px;
 	line-height: 1.7;
 	color: $preto;
-	min-height: 100vh;
+	min-height: 200vh;
 	font-family: $fonte-padrao;
 	letter-spacing: 0.04em;
 	position: relative;
@@ -42,10 +42,6 @@ body {
 
 			#cabecalho {
 				border-bottom-color: $livros;
-			}
-
-			&:before, &:after {
-				background-image: url('../img/grafismo#{$i}.svg');
 			}
 
 			// area util

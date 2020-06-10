@@ -1,0 +1,398 @@
+/****************************************
+ * CONTAINER QUE ENVOLVE MATERIAL *
+ ****************************************/
+
+.container {
+	width: 100%;
+    max-width: $container;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    position: relative;
+
+    @media (max-width: $container) {
+        max-width: 100%;
+    }
+}
+
+
+/****************************************
+ * CABECALHO *
+ ****************************************/
+
+#cabecalho {
+	background: $preto;
+	color: white;
+	min-height: 140px;
+	padding: 2em;
+	@include fundocompleto($preto);
+	@include flex(space-between);
+	@include flex-wrap(nowrap);
+	@include align-items(flex-end);
+	font-family: $fonte-titulos;
+	margin-bottom: 50px;
+	border-bottom: 10px solid $preto;
+
+	a.marca {
+		// white-space: nowrap;
+		line-height: 1.3;
+		display: block;
+		color: inherit;
+	    font-weight: bold;
+	    font-size: 2.3em;
+	    @include flex-grow(1);
+
+	    span {
+	    	display: block;
+	    	font-size: 1.4rem
+	    }
+	}
+
+	nav {
+		@include flex(center);
+		@include flex-wrap(nowrap);
+		@include flex-shrink(0);
+		@include align-items(flex-end);
+
+		a.sumario, button.imprimir {
+			display: inline-block; width: 41px; height: 37px; line-height: 37px;
+			padding: 2px; cursor: pointer;
+			position: relative; overflow: hidden; margin-left: 1em;
+
+			span {position: absolute; top: -999px; left: 999px;}
+
+			&:focus, &:hover {
+				outline: 2px solid white; 
+			}
+		}
+
+		a.sumario {background: url(../img/icone-menu.svg) no-repeat center center / 34px;}
+		button.imprimir {background: url(../img/icone-imprimir.svg) no-repeat center center / 30px;}
+	}
+
+	@media (max-width: $smart-maior) {
+		height: auto; @include flex-wrap(wrap);
+		padding-top: 1.6em; padding-bottom: 1em; margin-bottom: 0;
+
+		a.marca {
+			width: 100%; font-size: 1.8em;
+			text-align: center;
+		}
+
+		nav {
+			width: 100%; margin-top: 1.5em;
+			text-align: center;
+
+			a.sumario {
+				width: auto; height: auto; line-height: inherit; padding: 0 0 0 35px; margin: 0;
+				background-size: 25px; background-position: left bottom; overflow: initial; white-space: nowrap;
+
+				&:focus, &:hover {outline: 0}
+
+				// &:before {content: '\2022'; display: inline-block; margin-right: 14px;}
+
+				span {position: relative; top: initial; left: initial}
+			}
+
+			button.imprimir {display: none;}
+		}
+	}
+}
+
+/****************************************
+ * DEFININDO AREA UTIL DE CONTEUDO *
+ ****************************************/
+#area-util {
+	background: white; padding: 0;
+	border-top: 10px solid $preto;
+
+	// titulo do ebook
+	header {
+		color: white;
+		padding: 2em;
+		background: $preto;
+
+		mark {
+			color: inherit; background: none;
+			display: block; margin-bottom: 1em; font-weight: normal; letter-spacing: .09em;
+			font-family: inherit; font-size: .8em; text-transform: uppercase;
+		}
+
+		h2 {font-weight: normal; margin-top: .5em; font-size: 1.4em}
+
+		a.voltar {
+			float: right;
+			@include transform(translateY(-100%));
+		}
+
+		@media (max-width: $smart-menor) {
+			padding: 1em;
+
+			mark { font-size: .7em; }
+		}
+	}
+
+	.infos {
+		border: 3px solid $cinza; font-size: .9em;
+		padding: 1em 0; margin-bottom: 2em; border-left: 0; border-right: 0; 
+		p {margin: 0;}
+	}
+
+	// informacoes
+	article:not(.sumario) {
+		padding: 2em 2em 4em;
+
+		@media (max-width: $smart-menor) {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+	}
+
+
+	footer {
+		color: white;
+		padding: 2em;
+		background: $preto;
+		font-weight: bold;
+		font-family: $fonte-titulos;
+		@include flex(space-between);
+		@include flex-wrap(nowrap);
+		text-transform: uppercase;
+		letter-spacing: 0.09em;
+
+		a:nth-of-type(1) {@include order(1)}
+		a:nth-of-type(2) {@include order(3)}
+		a:nth-of-type(3) {@include order(2)}
+
+		@media (max-width: $smart-menor) {
+			padding: 1em; font-size: .9em;
+		}
+
+		@media (max-width: $celular) {
+			font-size: .7em;
+		}
+	}
+
+}
+
+
+/****************************************
+ * SUMARIO DOS LIVROS *
+ ****************************************/
+.sumario {
+
+	ol {
+		width: 100%;
+		padding: 2em 0 3em;
+
+		li {
+			display: block;
+			padding: 0 !important; margin: 0;
+			border-top: 2px solid $cinza;
+
+			&:first-of-type {border: 0;}
+			&:before {display: none !important;}
+
+			a {
+				display: block;
+				font-size: 1.3em;
+				font-family: $fonte-titulos;
+			    padding: .5em 1.5em;
+			    border-left: 6px solid white;
+
+			    @media (max-width: $smart-menor) { padding-left: 1em; padding-right: 1em; font-size: 1em; }
+
+			    &:hover, &:focus {border-color: $preto;}
+
+			    h2 {
+			    	padding: 0; margin: 0; line-height: 1.4;
+			    	width: 100%; font-size: 1.2em;
+
+			    	span { font-size: .85em; display: block; }
+			    }
+			}
+		}
+	}
+
+	h2 + ol { padding-top: .5em }
+}
+
+
+/****************************************
+ * PAGINACAO *
+ ****************************************/
+span.pagina {
+    text-align: right;
+    padding: 0; position: relative;
+    font-size: .8em;
+    display: block;
+    margin-bottom: 1rem;
+    color: lighten($preto,30%);
+
+    // &:before { content: "Pagina"; margin-right: 3px; }
+
+    &:after {
+    	width: calc(100% - 100px); height: 1px;
+    	background-color: $cinza; left: 0px;
+    	top: 50%; position: absolute;
+    	display: block; content: "";
+    }
+}
+
+
+
+/****************************************
+ * FICHA TECNICA *
+ ****************************************/
+#ficha {
+	width: 100%;
+	@include flex(space-between);
+	margin: 1em 0 0 0;
+
+	dl {
+		margin-bottom: 3em; 
+		width: 48%;
+
+		dt {
+			font-weight: bold; margin-top: 1.5em;
+			text-transform: uppercase;
+		}
+
+		@media (max-width: $smart-maior) {
+			width: 100%;
+		}
+	}
+}
+
+.catalografica {
+	width: 100%;
+	max-width: 800px;
+	font-size: 0.8em;
+	border: 1px solid $cinza;
+	margin: 2em auto 0; 
+
+	img {
+		width: 100%; height: auto;
+	}
+
+	p { margin: 0 0 20px; }
+
+	.titulo {
+		position: relative; 
+		width: 100%; 
+		font-size: 1.1em; 
+		border-bottom: 1px solid; 
+		padding: 10px 25px;
+		background: black;
+		color: white;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.codigo {
+		position: relative; 
+		width: 10%; 
+		float: left; 
+		padding: 25px 0px 25px 25px;
+		font-size: 1.1em;
+	}
+	
+	.dados {
+		position: relative; 
+		width: 88%; 
+		float: right; 
+		text-align: left; 
+		padding: 25px 25px 25px 0;
+		.cdu {
+			text-align: right;
+		}
+	}
+
+	&:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	& + .biblio-responsavel{
+		text-align: center;
+		margin-top: 0.5em;
+	}
+}
+
+
+.creative-commons {
+	margin-top: 4em;
+	
+	background: lighten($cinza,3%);
+	padding: 2em 20px;
+	position: relative;
+	
+	&:before {
+		border: 1px solid darken($cinza,2%);
+		width: calc(100% + 4em); background: lighten($cinza,3%);
+		height: 100%; position: absolute; top: 0; left: 50%;
+		@include transform(translateX(-50%)); content: '';
+
+	}
+
+	p { margin-right: auto; font-size: .8em; margin-left: auto; text-align: center; position: relative;}
+}
+
+
+/****************************************
+ * MODAL PARA AS NOTAS *
+ ****************************************/
+.abrir_nota {
+	font-size: 0.8em; cursor: pointer;
+    background: $cinza; color: $preto;
+    padding: .2em .3em; display: inline-block;
+    font-weight: bold; border-radius: 3px;
+	border: 3px solid $cinza;
+
+    &:focus, &:hover {
+		border-color: $preto;
+    }
+}
+
+.modalOverlay {
+	width:100%; height:100%;
+	z-index:10;
+	background-color: black; opacity:0.7;
+	position:fixed;
+	top:0; left:0;
+	display:none; 
+	margin:0; padding:0;	
+}
+
+.modal {
+	width: 500px;
+	max-width: 98%;
+	max-height: 98vh;
+	margin: 0 auto;
+	overflow-y: auto;
+	padding: 1.5em;
+	border: 0; background-color: white;
+	z-index: 11; box-shadow: 0 0 20px transparentize(black,0.6);
+	position:fixed; top: 50%; left:50%;
+	@include transform(translate(-50%,-50%));
+	display:none;
+
+	div[role="document"] {
+		position: relative;
+		font-size: .9em;
+
+		p {margin: 0;}
+
+		button {
+			font-size: 40px; color: $preto;
+			position: absolute;	right: -22px; top: -22px;
+			width: 27px; height: 27px; line-height: 27px;
+			text-align: center; padding: 0;
+		}
+	}
+}
+
+#explicaNota {
+	position: absolute; width: 0; height: 0; visibility: hidden; overflow: hidden; opacity: 0;
+}
