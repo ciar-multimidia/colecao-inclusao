@@ -1,0 +1,18 @@
+<svg viewBox="0 0 501 493" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g transform="matrix(1,0,0,1,-2641,-6888)">
+        <g transform="matrix(8.33333,0,0,8.33333,0,0)">
+            <g transform="matrix(0,-1,-1,0,329.34,860.987)">
+                <path id="bola1" d="M-12.34,-12.34C-19.155,-12.34 -24.68,-6.815 -24.68,0C-24.68,6.815 -19.155,12.34 -12.34,12.34C-5.525,12.34 0,6.815 0,0C0,-6.815 -5.525,-12.34 -12.34,-12.34" style="fill:rgb(68,221,0);fill-rule:nonzero;"/>
+                <animate  href="#bola1" attributeName="fill" from="#129FDB" to="#44DD00" dur="1.2s" values="#129FDB;#129FDB;#44DD00;#44DD00" keyTimes="0; 0.5; 0.5; 1" repeatCount="indefinite" />
+            </g>
+            <g transform="matrix(0,-1,-1,0,329.34,826.677)">
+                <path id="bola2" d="M-12.34,-12.34C-19.155,-12.34 -24.68,-6.815 -24.68,0C-24.68,6.815 -19.155,12.34 -12.34,12.34C-5.525,12.34 0,6.815 0,0C0,-6.815 -5.525,-12.34 -12.34,-12.34" style="fill:rgb(132,0,159);fill-rule:nonzero;"/>
+                <animate  href="#bola2" attributeName="fill" from="#F9B313" to="#84009f" dur="1s" values="#F9B313;#F9B313;#84009f;#84009f" keyTimes="0; 0.5; 0.5; 1" repeatCount="indefinite" />
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.66,860.987)">
+                <path id="bola3" d="M-12.34,-12.34C-19.155,-12.34 -24.68,-6.815 -24.68,0C-24.68,6.815 -19.155,12.34 -12.34,12.34C-5.525,12.34 0,6.815 0,0C0,-6.815 -5.525,-12.34 -12.34,-12.34" style="fill:rgb(255,68,70);fill-rule:nonzero;"/>
+                <animate  href="#bola3" attributeName="fill" from="#FF4446" to="#333" dur="1.4s" values="#FF4446;#FF4446;#333;#333" keyTimes="0; 0.5; 0.5; 1" repeatCount="indefinite" />
+            </g>
+        </g>
+    </g>
+</svg>

@@ -10,7 +10,6 @@ body {
 	font-size: 18px;
 	line-height: 1.7;
 	color: $preto;
-	min-height: 200vh;
 	font-family: $fonte-padrao;
 	letter-spacing: 0.04em;
 	position: relative;
@@ -31,7 +30,7 @@ body {
 
 	& > * {position: relative; z-index: 1;}
 	
-	@media (max-width: $smart-maior) { font-size: 16px; }
+	@media (max-width: $smart-maior) { font-size: 15px; }
 
 	/****************************************
 	 **** / INICIO DE ADICAO DE CORES / *****
@@ -41,13 +40,15 @@ body {
 		&#livro#{$i}{
 
 			#cabecalho {
-				border-bottom-color: $livros;
+				&:before {background-image: url('../img/header-livro#{$i}.svg');}
 			}
 
 			// area util
 			#area-util {
-				border-color: $livros;
-				header, footer {background: $livros}
+				&:before {background: $livros;}
+				header {
+					&:before {background-image: url('../img/grafismo-h1-livro#{$i}.svg');}
+				}
 				.infos strong {color: $livros}
 			}
 
@@ -83,6 +84,13 @@ body {
 			// botao
 			button.botao {
 				&:focus, &:hover {background: $livros}
+			}
+
+
+			&.sumario {
+				#cabecalho {
+					&:before {background-image: url('../img/header-sumario-livro#{$i}.svg');}
+				}				
 			}
 			
 		}

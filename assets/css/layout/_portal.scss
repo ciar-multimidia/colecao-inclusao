@@ -1,3 +1,13 @@
+
+@media (max-width: $smart-maior) { 
+	:root { --padding-portal: 1.5em; }
+}
+
+@media (max-width: $celular) {
+	:root { --padding-portal: 1em; }
+}
+
+
 .sessao-portal {
 	min-height: 100vh;
 	background: white;
@@ -5,15 +15,29 @@
     @include flex-wrap(wrap);
     @include flex-direction(column);	
     @include justify-content(center);
-	padding: 2em 0;	
+
+	h2.chamada { font-size: 2.6em; margin-bottom: 20px;}	
+
+	@media (max-width: $smart-maior) {
+		min-height: unset;
+		h2.chamada { font-size: 2em;}	
+	}
 }
 
 #portal {
 	
 	&:before, &:after {
 		content: ""; position: absolute;
-		bottom: 2em;
+		bottom: var(--padding-portal); width: 30px; height: 30px;
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		@media (max-width: $smart-maior) {display: none;}
 	}
+
+	&:before { background-image: url('../img/grafismo-portal.svg'); left: var(--padding-portal); }
+	&:after { background-image: url('../img/grafismo-portal2.svg'); right: var(--padding-portal); @include transform(scaleX(-1));}
 
 
 	header {
@@ -22,6 +46,7 @@
 		width: 90%;
 		max-width: 560px;
 		position: relative;
+		@media (max-width: $smart-maior) { padding-top: var(--padding-portal); @include order(1); }
 
 		svg {
 			position: relative;
@@ -36,6 +61,14 @@
 			g.cores path {
 				fill: $preto;
 				@include transition(fill 0.2s ease-in-out);
+
+				@media (max-width: $smart-maior) {
+					&.vermelho {fill: nth($cores-livros, 1);}
+					&.azul {fill: nth($cores-livros, 2);}
+					&.verde {fill: nth($cores-livros, 3);}
+					&.amarelo {fill: nth($cores-livros, 4);}
+					&.roxo {fill: nth($cores-livros, 5);}	
+				}
 			}
 		}
 
@@ -87,8 +120,10 @@
 	}
 
 	nav {
-		padding: 2em; position: absolute; width: 100%;
+		padding: var(--padding-portal); position: absolute; width: 100%;
 		top: 0; left: 0; font-size: .8em;
+
+		@media (max-width: $smart-maior) { position: relative; @include order(2); }
 
 		ul {
 			@include flex(space-between);
@@ -98,17 +133,27 @@
 				margin-bottom: 1em;
 				font-family: $fonte-titulos;
 				text-transform: uppercase;
-				
-				&:nth-of-type(odd) { 
-					text-align: left;
-					a { border-left: 30px solid; padding-left: 20px }
-				}
-				&:nth-of-type(even) { 
-					text-align: right;
-					a { border-right: 30px solid; padding-right: 20px; }
+
+				@media (min-width: $smart-menor + 1px) { 
+					&:nth-of-type(odd) { 
+						text-align: left;
+						a { border-left: 30px solid; padding-left: 20px }
+					}
+					&:nth-of-type(even) { 
+						text-align: right;
+						a { border-right: 30px solid; padding-right: 20px; }
+					}
 				}
 
-				a { display: block; @include transition(border-color 0.2s ease-in-out); }
+				@media (max-width: $smart-menor) { 
+					width: 100%;
+					a { border-left: 20px solid; padding-left: 10px }
+				}
+
+				a {
+					display: block; @include transition(border-color 0.2s ease-in-out);
+					@media (max-width: $smart-menor) { br {display: none;} }
+				}
 
 
 				// definicao automatica de ordem de cores
@@ -118,6 +163,8 @@
 						&:focus, &:hover {
 							border-color: $livros;
 						}
+
+						@media (max-width: $smart-maior) { border-color: $livros; }
 					}
 				}
 			}
@@ -127,5 +174,136 @@
 
 
 #livros {
+	padding: var(--padding-portal);
+	background: white url('../img/grafismo-portal-ebooks.svg') no-repeat right top / contain;
 
+	nav ul {
+		width: 100%;
+
+		li {
+			width: 100%;
+			margin-bottom: .6em;
+
+			a {
+				display: block;
+				background: $preto;
+				padding: 1em;
+				// padding-left: 50px;
+				color: white;
+				font-size: 1em;
+				font-family: $fonte-titulos;
+				border-left: 20px solid $preto;
+				@include transition(border-color 0.2s ease-in-out);
+
+				@media (max-width: $smart-menor) {font-size: .85em;}
+
+				span {
+					display: block;
+					font-size: 1.3em;
+				}
+
+				&:hover, &:focus {
+					&.livro1 {border-color: nth($cores-livros, 1);}
+					&.livro2 {border-color: nth($cores-livros, 2);}
+					&.livro3 {border-color: nth($cores-livros, 3);}
+					&.livro4 {border-color: nth($cores-livros, 4);}
+					&.livro5 {border-color: nth($cores-livros, 5);}					
+				}
+			}
+		}
+	}
+}
+
+#sobre {
+	padding: var(--padding-portal); 
+
+	&:before {
+		width: 100%; height: 100%; top: 0; left: 0; content: ""; position: absolute;
+		background: url('../img/grafismo-portal-sobre.svg') no-repeat left top / contain;
+
+		 @media (max-width: $smart-maior) { height: 50%; }
+	}
+
+	& > * {z-index: 2; position: relative; }
+
+	p { max-width: $smart-maior; }
+}
+
+
+#conselho {
+	padding: var(--padding-portal);
+	text-align: right;
+	background: nth($cores-livros, 3);
+	@media (max-width: $smart-maior) { text-align: left; }
+
+	&:before, &:after { content: ""; position: absolute; display: block; right: 0; }
+
+	&:before {
+		height: 0; padding-bottom: 50%; width: 50%; top: 5px;
+		background: url('../img/grafismo-portal-conselho.svg') no-repeat left top / contain;
+		@include transform(translateY(-100%));
+
+		@media (max-width: $smart-maior) {padding-bottom: 70%; width: 70%;}
+	}
+
+	&:after {
+		width: 100%; height: 0; top: 0; padding-bottom: 41%; background: white url('../img/grafismo-portal-conselho2.svg') no-repeat left top / cover;
+	}
+
+	& > * { position: relative; z-index: 1}
+
+	ul li {
+		span {
+			&:nth-of-type(1) { font-weight: bold; }
+			&:nth-of-type(2) {
+				&:before { content: " - "; margin: 0 3px; display: inline-block; vertical-align: middle; }
+			}
+		}
+		@media (max-width: $smart-menor) {
+			margin-bottom: .4em;
+			span {
+				display: block;
+				&:nth-of-type(2) {
+					font-size: .85em; font-style: italic;
+					&:before { display: none; }
+				}
+			}
+		}
+	}
+}
+
+#marcas {
+	padding: var(--padding-portal);
+	background: $preto;
+	text-align: center;
+	min-height: unset;
+	padding-top: 200px;
+	overflow: hidden;
+
+	a.voltar {
+		width: 300px; height: 300px; border-radius: 50%; top: 0; left: 50%; @include transform(translate(-50%,-50%));
+		background: nth($cores-livros, 2); content: ""; position: absolute; padding: 2em;
+		font-family: $fonte-titulos; font-weight: bold; font-size: 1.3em;
+	    @include display(flex); @include flex-wrap(wrap); text-decoration: none;
+	    @include flex-direction(column); @include justify-content(flex-end);
+	    @include transition(background 0.2s ease-in-out);
+
+	    span {
+	    	display: block; letter-spacing: -6px;
+	    	@include transform(rotate(-90deg)); 
+	    	width: 32px; font-size: 32px; 
+	    	line-height: 25px; margin: 0 auto;
+	    }
+
+	    &:hover, &:focus { background: nth($cores-livros, 4); }
+	}
+
+    @media (max-width: $smart-menor) {
+    	padding-top: 150px;
+
+    	a.voltar {
+	    	@include transform(scale(0.7) translate(-50%,-50%));
+	    	@include transform-origin(left top);
+    	}
+    }
 }
