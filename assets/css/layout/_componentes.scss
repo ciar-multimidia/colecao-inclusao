@@ -111,6 +111,7 @@
 	body.sumario & {
 		margin-bottom: 0;
 		padding-top: 6em;
+		@include flex-wrap(wrap);
 		@media (max-width: $smart-maior) { padding-top: 3em }
 
 		a.voltacolecao {
@@ -127,7 +128,12 @@
 			width: 100%; padding-bottom: 48.7%;
 			@include imagemfull(contain,left,-40px);
 			left: 0; @include transform(translateX(0));
-		}		
+		}	
+
+		.infos {
+			font-size: .75em;
+			width: 100%; text-align: right;
+		}	
 	}
 }
 
