@@ -122,6 +122,8 @@
 
 		a.marca {
 			text-align: right;
+
+			@media (max-width: $smart-maior) { text-align: center; margin-top: 1em; }
 		}
 
 		&:before {
@@ -133,6 +135,8 @@
 		.infos {
 			font-size: .75em; position: relative;
 			width: 100%; text-align: right;
+
+			@media (max-width: $smart-maior) { text-align: center; br {display: none;} }
 		}	
 	}
 }
