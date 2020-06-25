@@ -79,7 +79,9 @@
 
 	@media (max-width: $smart-maior) {
 		height: auto; @include flex-wrap(wrap);
-		padding-top: 1.6em; padding-bottom: 1em; margin-bottom: 0;
+		padding-top: 1.6em;
+		// padding-bottom: 1em; 
+		margin-bottom: 0;
 
 		a.marca {
 			width: 100%; font-size: 1.8em;
@@ -108,6 +110,14 @@
 
 	body.sumario & {
 		margin-bottom: 0;
+		padding-top: 6em;
+		@media (max-width: $smart-maior) { padding-top: 3em }
+
+		a.voltacolecao {
+			position: relative;
+			border-left: 30px solid $preto; padding-left: 20px;
+			@media (max-width: $smart-maior) { br {display: none;} }
+		}
 
 		a.marca {
 			text-align: right;
@@ -115,7 +125,7 @@
 
 		&:before {
 			width: 100%; padding-bottom: 48.7%;
-			@include imagemfull(contain,left,top);
+			@include imagemfull(contain,left,-40px);
 			left: 0; @include transform(translateX(0));
 		}		
 	}
@@ -133,7 +143,7 @@
 		height: 10px; content: ""; left: 50%; display: block;
 		@include transform(translateX(-50%));
 
-		@media (max-width: $smart-menor) {width: calc(100% - 2em);}
+		@media (max-width: $smart-menor) {width: 100%; }
 	}
 
 	// titulo do ebook
@@ -175,9 +185,11 @@
 		padding: 1em 0; margin: 0 0 2em 2em; font-family: $fonte-titulos;
 		float: right; width: 280px; text-align: right;
 
-		strong { display: block; font-size: 1.15em; }
-	
+		@media (max-width: $smart-maior) {
+			float: none; width: 100%; text-align: left; margin-left: 0;
+		}
 
+		strong { display: block; font-size: 1.15em; }
 		p {margin: 0;}
 	}
 
@@ -230,6 +242,7 @@
  * SUMARIO DOS LIVROS *
  ****************************************/
 article.sumario {
+	position: relative;
 
 	ol {
 		width: 100%;
@@ -247,8 +260,8 @@ article.sumario {
 				display: block;
 				font-size: 1.3em;
 				font-family: $fonte-titulos;
-			    padding: .5em 1.5em;
-			    border-left: 6px solid white;
+			    padding: 1em 1.5em;
+			    border-left: 6px solid transparent;
 
 			    @media (max-width: $smart-menor) { padding-left: 1em; padding-right: 1em; font-size: 1em; }
 
@@ -265,6 +278,14 @@ article.sumario {
 	}
 
 	h2 + ol { padding-top: .5em }
+
+
+	&:before {
+		width: 100vw; height: 0; padding-bottom: 9.5%;
+		@include imagemfull(contain,center,top);
+		bottom: 0; left: 50%; content: ""; position: absolute;
+		@include transform(translateX(-50%) scale(-1));
+	}
 }
 
 
@@ -278,8 +299,8 @@ span.pagina {
     display: block;
     margin-bottom: 1rem;
     width: 100%;
-    float: right;
-    @include clearfix;
+    // float: right;
+    // @include clearfix;
     color: lighten($preto,30%);
 
     // &:before { content: "Pagina"; margin-right: 3px; }

@@ -1,4 +1,9 @@
 jQuery(document).ready(function($) {
+    window.FakeLoader.init( { auto_hide: true } );
+
+    var janela = $(window),
+        janelaWidth = $(window).width();
+    
     /////////////////////// NOTA RODAPE
     
     var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]",
@@ -151,5 +156,18 @@ jQuery(document).ready(function($) {
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
     });
+
+    /////////////////////// SUBIR TOPO
+    var irAoTopo = $('#toTop');
+
+
+    /////////////////////// EVENTOS DE JANELA
+    janela.bind('scroll', function () {
+      if (janela.scrollTop() > 350) {
+        irAoTopo.addClass('mostra');
+      } else if (janela.scrollTop() < 350) {
+        irAoTopo.removeClass('mostra');
+      }
+    }); 
 
 });

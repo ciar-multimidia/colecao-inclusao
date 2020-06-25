@@ -103,11 +103,13 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-size: 2.1em; 
+
     article {font-size: 1.9em;}
     @media (max-width: $smart-maior) {
-    	font-size: 1.8em;
 
-    	article {font-size: 1.7em;}
+    	font-size: 1.65em;
+
+    	article {font-size: 1.55em;}
     }
 }
 
