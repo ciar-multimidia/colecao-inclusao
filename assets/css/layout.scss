@@ -49,7 +49,7 @@ body {
 				header {
 					&:before {background-image: url('../img/grafismo-h1-livro#{$i}.svg');}
 				}
-				.infos strong {color: $livros}
+				// .infos strong {color: $livros}
 			}
 
 			// detalhes do artigo
