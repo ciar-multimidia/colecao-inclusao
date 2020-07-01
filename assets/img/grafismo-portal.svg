@@ -7,7 +7,7 @@
             </g>
             <g transform="matrix(0,-1,-1,0,329.34,826.677)">
                 <path id="bola2" d="M-12.34,-12.34C-19.155,-12.34 -24.68,-6.815 -24.68,0C-24.68,6.815 -19.155,12.34 -12.34,12.34C-5.525,12.34 0,6.815 0,0C0,-6.815 -5.525,-12.34 -12.34,-12.34" style="fill:rgb(132,0,159);fill-rule:nonzero;"/>
-                <animate  href="#bola2" attributeName="fill" from="#84009f" to="#F9B313" dur="1s" values="#84009f;#84009f;#F9B313;#F9B313" keyTimes="0; 0.5; 0.5; 1" repeatCount="indefinite" />
+                <animate  href="#bola2" attributeName="fill" from="#8171ff" to="#F9B313" dur="1s" values="#8171ff;#8171ff;#F9B313;#F9B313" keyTimes="0; 0.5; 0.5; 1" repeatCount="indefinite" />
             </g>
             <g transform="matrix(0,-1,-1,0,364.66,860.987)">
                 <path id="bola3" d="M-12.34,-12.34C-19.155,-12.34 -24.68,-6.815 -24.68,0C-24.68,6.815 -19.155,12.34 -12.34,12.34C-5.525,12.34 0,6.815 0,0C0,-6.815 -5.525,-12.34 -12.34,-12.34" style="fill:rgb(255,68,70);fill-rule:nonzero;"/>
