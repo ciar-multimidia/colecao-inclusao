@@ -107,7 +107,8 @@
 		column-gap: 1em;
 		orphans: 3;
 
-		div { break-inside: avoid; }
+		div:not(.video) { break-inside: avoid; }
+		div.video { column-span: all; }
 
 		h3 { 
 			margin-top: 0; position: relative;
