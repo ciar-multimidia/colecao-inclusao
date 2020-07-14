@@ -106,8 +106,9 @@
 		column-count: 2;
 		column-gap: 1em;
 		orphans: 3;
-
-		div { break-inside: avoid; }
+		
+		div:not(.video) { break-inside: avoid; }
+		div.video { column-span: all; border-top: 5px solid nth($cores-livros, 3); }
 
 		h3 { 
 			margin-top: 0; position: relative;

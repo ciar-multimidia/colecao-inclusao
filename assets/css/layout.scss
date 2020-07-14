@@ -66,8 +66,8 @@ body {
 
 				&:not(.sumario) a {
 					&:link, &:visited, &:active, &:focus {
-						color: $livros; word-break: break-all;
-						box-shadow: inset 0 -2px 0 transparentize($livros,0.7);
+						word-break: break-all;
+						box-shadow: inset 0 -2px 0 $livros;
 						text-decoration: none !important;
 					}
 
