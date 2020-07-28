@@ -262,18 +262,18 @@ article.sumario {
 			display: block;
 			padding: 0 !important; margin: 0;
 			border-top: 2px dotted $cinza;
+			font-size: 1.3em;
 
 			&:first-of-type {border: 0;}
 			&:before {display: none !important;}
 
 			a {
-				display: block;
-				font-size: 1.3em;
+				display: inline-block;
 				font-family: $fonte-titulos;
 			    padding: 1em 1.5em;
 			    border-left: 6px solid transparent;
 
-			    @media (max-width: $smart-menor) { padding-left: 1em; padding-right: 1em; font-size: 1em; }
+			    @media (max-width: $smart-menor) { padding-left: 1em; padding-right: 1em; }
 
 			    &:hover, &:focus {border-color: $preto;}
 
