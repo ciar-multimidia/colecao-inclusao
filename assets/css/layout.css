@@ -1540,6 +1540,102 @@ body#livro6 a#toTop:hover {
   color: #212121;
   background-color: #ffa131;
 }
+body#livro7 #cabecalho:before {
+  background-image: url("../img/header-livro7.svg");
+}
+body#livro7 #area-util:before {
+  background: #ef65cb;
+}
+body#livro7 #area-util header:before {
+  background-image: url("../img/grafismo-h1-livro7.svg");
+}
+body#livro7 article table {
+  border-color: #ef65cb;
+}
+body#livro7 article ol li:before, body#livro7 article ul li:before {
+  color: #ef65cb;
+}
+body#livro7 article p input[type=checkbox] + label {
+  background: #ef65cb;
+}
+body#livro7 article:not(.sumario) a:link, body#livro7 article:not(.sumario) a:visited, body#livro7 article:not(.sumario) a:active, body#livro7 article:not(.sumario) a:focus {
+  word-break: break-all;
+  box-shadow: inset 0 -2px 0 #ef65cb;
+  text-decoration: none !important;
+}
+body#livro7 article:not(.sumario) a:hover, body#livro7 article:not(.sumario) a:focus {
+  box-shadow: inset 0 -19px 0 rgba(239, 101, 203, 0.1);
+}
+body#livro7 .sumario ol li a:hover, body#livro7 .sumario ol li a:focus {
+  border-color: #ef65cb;
+}
+body#livro7 button.botao:focus, body#livro7 button.botao:hover {
+  background: #ef65cb;
+}
+body#livro7.sumario #cabecalho:before {
+  background-image: url("../img/header-sumario-livro7.svg");
+}
+body#livro7.sumario article.sumario:before {
+  background-image: url("../img/header-livro7.svg");
+}
+body#livro7 #fakeloader-overlay .loader {
+  border-top: 8px solid #ef65cb;
+  border-right: 8px solid #ef65cb;
+  border-bottom: 8px solid #ef65cb;
+  border-left: 8px solid rgba(239, 101, 203, 0.5);
+}
+body#livro7 a#toTop:hover {
+  color: #212121;
+  background-color: #ef65cb;
+}
+body#livro8 #cabecalho:before {
+  background-image: url("../img/header-livro8.svg");
+}
+body#livro8 #area-util:before {
+  background: #33d3a9;
+}
+body#livro8 #area-util header:before {
+  background-image: url("../img/grafismo-h1-livro8.svg");
+}
+body#livro8 article table {
+  border-color: #33d3a9;
+}
+body#livro8 article ol li:before, body#livro8 article ul li:before {
+  color: #33d3a9;
+}
+body#livro8 article p input[type=checkbox] + label {
+  background: #33d3a9;
+}
+body#livro8 article:not(.sumario) a:link, body#livro8 article:not(.sumario) a:visited, body#livro8 article:not(.sumario) a:active, body#livro8 article:not(.sumario) a:focus {
+  word-break: break-all;
+  box-shadow: inset 0 -2px 0 #33d3a9;
+  text-decoration: none !important;
+}
+body#livro8 article:not(.sumario) a:hover, body#livro8 article:not(.sumario) a:focus {
+  box-shadow: inset 0 -19px 0 rgba(51, 211, 169, 0.1);
+}
+body#livro8 .sumario ol li a:hover, body#livro8 .sumario ol li a:focus {
+  border-color: #33d3a9;
+}
+body#livro8 button.botao:focus, body#livro8 button.botao:hover {
+  background: #33d3a9;
+}
+body#livro8.sumario #cabecalho:before {
+  background-image: url("../img/header-sumario-livro8.svg");
+}
+body#livro8.sumario article.sumario:before {
+  background-image: url("../img/header-livro8.svg");
+}
+body#livro8 #fakeloader-overlay .loader {
+  border-top: 8px solid #33d3a9;
+  border-right: 8px solid #33d3a9;
+  border-bottom: 8px solid #33d3a9;
+  border-left: 8px solid rgba(51, 211, 169, 0.5);
+}
+body#livro8 a#toTop:hover {
+  color: #212121;
+  background-color: #33d3a9;
+}
 
 /****************************************
  * CONTAINER QUE ENVOLVE MATERIAL *
@@ -2759,6 +2855,22 @@ span.pagina:after {
     border-color: #ffa131;
   }
 }
+#portal nav ul li:nth-of-type(7) a:focus, #portal nav ul li:nth-of-type(7) a:hover {
+  border-color: #ef65cb;
+}
+@media (max-width: 680px) {
+  #portal nav ul li:nth-of-type(7) a {
+    border-color: #ef65cb;
+  }
+}
+#portal nav ul li:nth-of-type(8) a:focus, #portal nav ul li:nth-of-type(8) a:hover {
+  border-color: #33d3a9;
+}
+@media (max-width: 680px) {
+  #portal nav ul li:nth-of-type(8) a {
+    border-color: #33d3a9;
+  }
+}
 
 #livros {
   padding: var(--padding-portal);
@@ -3542,6 +3654,20 @@ a#toTop span {
   }
   body#livro6 #area-util .infos strong {
     color: #ffa131;
+  }
+  body#livro7 #area-util header {
+    background: transparent;
+    color: #ef65cb;
+  }
+  body#livro7 #area-util .infos strong {
+    color: #ef65cb;
+  }
+  body#livro8 #area-util header {
+    background: transparent;
+    color: #33d3a9;
+  }
+  body#livro8 #area-util .infos strong {
+    color: #33d3a9;
   }
 
   main {
