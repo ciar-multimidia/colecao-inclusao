@@ -2922,6 +2922,12 @@ span.pagina:after {
 #livros nav ul li a:hover.livro6, #livros nav ul li a:focus.livro6 {
   border-color: #ffa131;
 }
+#livros nav ul li a:hover.livro7, #livros nav ul li a:focus.livro7 {
+  border-color: #ef65cb;
+}
+#livros nav ul li a:hover.livro8, #livros nav ul li a:focus.livro8 {
+  border-color: #33d3a9;
+}
 
 #sobre {
   padding: var(--padding-portal);

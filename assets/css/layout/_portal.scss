@@ -203,12 +203,9 @@
 				}
 
 				&:hover, &:focus {
-					&.livro1 {border-color: nth($cores-livros, 1);}
-					&.livro2 {border-color: nth($cores-livros, 2);}
-					&.livro3 {border-color: nth($cores-livros, 3);}
-					&.livro4 {border-color: nth($cores-livros, 4);}
-					&.livro5 {border-color: nth($cores-livros, 5);}
-					&.livro6 {border-color: nth($cores-livros, 6);}					
+					@for $i from 1 through 8 {
+						&.livro#{$i} {border-color: nth($cores-livros, $i);}
+					}
 				}
 			}
 		}
