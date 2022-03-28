@@ -20,6 +20,19 @@ article {
 		display: block;
 	}
 
+	// iframes youtube
+	.container-video{
+		width: $artigo;
+		height: 0;
+		padding-top: 56.25%;
+		position: relative;
+		iframe{
+			position: absolute;
+			top: 0; left: 0;
+			width: 100%; height: 100%;
+		}
+	}
+
 	// figuras
 	figure {
 
@@ -41,8 +54,12 @@ article {
 		}
 
 		@media (max-width: $smart-maior) {
-			width: 100% !important; float: none !important;
-			margin: 0 auto 2em !important;
+			&, &.alinha-esquerda, &.alinha-direita, &.figura-menor{
+				width: 100%; 
+				float: none;
+				margin: 0 auto 2em;	
+			}
+			
 
 			img {display: block; text-align: center; margin-left: auto; margin-right: auto}
 		}
@@ -74,6 +91,34 @@ article {
 			}
 
 		}
+	}
+
+
+	.fotos-mulheres-sussa{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1em;
+		figure{
+			margin-bottom: 0;
+			img{
+				display: block;
+			}
+			figcaption{
+				border: none;
+				padding: 0;
+				font-size: 1.1em;
+			}
+		}
+
+		@media (max-width: $smart-maior) {
+			grid-template-columns: repeat(2, 1fr);
+
+			figure{
+				// margin-bottom: 2em;
+				width: 100%;
+			}
+		}
+
 	}
 
 
@@ -151,6 +196,89 @@ article {
 			counter-increment: section; text-align: left;
 			content: counter(section) ".";
 			vertical-align: baseline;
+		}
+	}
+
+	.audio-player{
+		width: auto;
+		height: 4em;
+		border-radius: 2em;
+		padding-left: .5em;
+		padding-right: 2em;
+		border: 2px solid;
+		overflow: hidden;
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		audio{
+			display: none;
+		}
+		.progresso{
+			background-color: grey;
+			opacity: 0.2;
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+		.bt-play-pause, .bt-stop{
+			font-size: 1em;
+			width: 3em;
+			height: 3em;
+			border-radius: 50%;
+			margin-right: .5em;
+			background-color: black;
+			color: white;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+
+		.bt-play-pause{
+			svg{
+				height: 1.5em;
+				*{fill: currentColor}
+				g{
+					opacity: 0;
+				}
+			}
+
+			&.play{
+				svg .ico-play{
+					opacity: 1;
+				}
+			}
+
+			&.pause{
+				svg .ico-pause{
+					opacity: 1;
+				}
+			}
+		}
+
+		.bt-stop{
+			margin-right: 1em;
+			svg{
+				height: 1em;
+				*{fill: currentColor}
+			}
+		}
+
+		.tempo{
+			width: auto;
+			margin-bottom: 0;
+			display: inline-block;
+			span{
+				display: inline-block;
+				&:first-child{
+					min-width: 5ch;
+					text-align: right;
+				}
+			}
 		}
 	}
 
