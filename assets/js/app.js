@@ -170,4 +170,71 @@ jQuery(document).ready(function($) {
       }
     }); 
 
+
+
+    /////////////////////// AUDIOS
+    var $audioPlayers = $(".audio-player");
+
+    $.each($audioPlayers, function(index, val) {
+        var isPlaying;
+        var $player = $(val);
+        var $progresso = $player.find(".progresso");
+        var $thisAudio = $player.find("audio");
+        var $thisPlayPause = $player.find(".bt-play-pause");
+        var $thisStop = $player.find(".bt-stop");
+        var $tempo = $player.find(".tempo");
+        var duracaoAudio = $thisAudio[0].duration;
+
+        $thisAudio.on('canplaythrough', function(event) {
+            // console.log($(this).attr("src"));
+            event.preventDefault();
+            duracaoAudio = $thisAudio[0].duration;
+            $tempo.find(".total").text(Math.floor(duracaoAudio/60) + ":" + ("0"+Math.floor(duracaoAudio % 60)).slice(-2) );
+            $(this)
+            .on('playing', function(event) {
+                isPlaying = true;
+                $thisPlayPause.removeClass('play').addClass("pause");
+            })
+            .on('pause', function(event) {
+                isPlaying = false;
+                $thisPlayPause.removeClass('pause').addClass("play");
+            })
+            .on('timeupdate', function(event) {
+                $progresso.css('width', (this.currentTime/duracaoAudio*100).toFixed(2)+"%");
+                $tempo.find(".atual").text( (this.currentTime >= 60 ? Math.floor(this.currentTime/60) : 0) + ":" + ("0"+Math.floor(this.currentTime % 60)).slice(-2) );
+            })
+            .on('ended', function(event){
+                $progresso.css('width', "0%");
+                $tempo.find(".atual").text("0:00");
+            });
+
+            $thisPlayPause.on('click', function(event) {
+                if (isPlaying) {
+                    $thisAudio[0].pause();
+                }
+                else {
+                    $thisAudio[0].play();
+                }
+            });
+
+            $thisStop.on('click', function(event) {
+                    $thisAudio[0].pause();
+                    $thisAudio[0].currentTime = 0;
+            });
+        });
+
+        if (!isNaN(duracaoAudio)) {
+            // console.log($thisAudio.attr("src") + "ja tava carregado, forcando evento");
+
+            $thisAudio.trigger("canplaythrough")
+        };
+
+      
+
+       
+
+    });
+
+
+
 });

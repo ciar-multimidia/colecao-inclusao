@@ -3,6 +3,13 @@ article {
 	// h3 {font-size: 1.2em; font-weight: bold}
 	// h4 {font-size: 1em; font-weight: bold}
 
+	hr.longo{
+		width: 100%;
+		margin: 0;
+		height: 10px;
+		margin: 6em 0;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		& + p, & + ol, & + ul {
 			margin-top: 1.8em;
@@ -23,9 +30,12 @@ article {
 	// iframes youtube
 	.container-video{
 		width: $artigo;
+		max-width: 100%;
 		height: 0;
 		padding-top: 56.25%;
 		position: relative;
+		clear: both;
+		margin: 1.8em 0;
 		iframe{
 			position: absolute;
 			top: 0; left: 0;
@@ -33,10 +43,16 @@ article {
 		}
 	}
 
+
+
 	// figuras
 	figure {
 
 		display: inline-block;
+
+		&.bloco{
+			display: block;
+		}
 
 
 		figcaption {
@@ -46,15 +62,25 @@ article {
 		}
 
 		&.grande {width: 100%;}
+		&.pequeno{
+			display: block;
+			width: $artigo / 2;
+			img{
+				width: 100%;
+				display: block;
+			}
+		}
 		&.alinha-esquerda { width: auto; float: left; margin: 0 2em 0 0; text-align: left;}
 		&.alinha-direita { width: auto; float: right; margin: 0 0 0 2em; text-align: right;}
+
+		
 
 		&.galeria {
 			img + img {margin-top: 1em; display: block;}
 		}
 
 		@media (max-width: $smart-maior) {
-			&, &.alinha-esquerda, &.alinha-direita, &.figura-menor{
+			&, &.alinha-esquerda, &.alinha-direita, &.figura-menor, &.pequeno{
 				width: 100%; 
 				float: none;
 				margin: 0 auto 2em;	
@@ -122,6 +148,35 @@ article {
 	}
 
 
+
+	.letra-musica{
+		padding-left: 3em;
+	    margin-top: 2em;
+	    margin-bottom: 2em;
+	    font-style: italic;
+	    font-size: 1.1em;
+	    color: hsl(0deg 0% 40%);
+	    position: relative;
+	    width: $artigo;
+	    max-width: 100%;
+
+	    p{
+	    	width: 100%;
+	    }
+
+	    &:before{
+	    	content: "\00266a";
+	    	    position: absolute;
+	    	    left: 0;
+	    	    /* bottom: 0; */
+	    	    font-size: 3em;
+	    	    line-height: 1;
+	    	    color: hsl(0deg 0% 80%);
+	    	    font-style: normal;
+	    }
+	}
+
+
 	// tabelas
 	.wrap-table {
 		overflow-x: auto; margin-bottom: 1.8em;
@@ -162,6 +217,25 @@ article {
 		padding-left: 6em;
 		font-size: .9em;
 		opacity: .8;
+	}
+
+
+	/* citacao mulheres sussa */
+	.citacao-mulheres{
+		font-style: italic;
+		position: relative;
+		padding-top: 3em;
+		&:before{
+			content: "\❝";
+			margin-right: 1ch;
+			display: inline-block;
+			font-size: 4em;
+			line-height: 1;
+			opacity: 0.2;
+			position: absolute;
+			top: 0; left: 0;
+			z-index: -1;
+		}
 	}
 
 	
@@ -210,12 +284,13 @@ article {
 		display: inline-flex;
 		align-items: center;
 		position: relative;
+		margin: 1.5em 0;
 		audio{
 			display: none;
 		}
 		.progresso{
 			background-color: grey;
-			opacity: 0.2;
+			// opacity: 0.2;
 			position: absolute;
 			z-index: -1;
 			top: 0;
