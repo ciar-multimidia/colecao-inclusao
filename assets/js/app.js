@@ -185,6 +185,10 @@ jQuery(document).ready(function($) {
         var $tempo = $player.find(".tempo");
         var duracaoAudio = $thisAudio[0].duration;
 
+
+        /* PARA MOTIVOS DE DEBUG */
+        // $thisAudio[0].playbackRate = 2;
+
         $thisAudio.on('canplaythrough', function(event) {
             // console.log($(this).attr("src"));
             event.preventDefault();

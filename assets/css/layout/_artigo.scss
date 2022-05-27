@@ -136,7 +136,7 @@ article {
 			}
 		}
 
-		@media (max-width: $smart-maior) {
+		@media screen and (max-width: $smart-maior) {
 			grid-template-columns: repeat(2, 1fr);
 
 			figure{
