@@ -10,6 +10,7 @@
   -webkit-transition: opacity 0.2s linear;
   -moz-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear; 
+  display: none !important;
 }
 
 #fakeloader-overlay.visible {

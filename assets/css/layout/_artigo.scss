@@ -98,6 +98,13 @@ article {
 
 			figcaption p {text-align: center;}
 		}
+
+		&.img-esticada{
+			img{
+				display: block;
+				width: 100%;
+			}
+		}
 	}
 
 	.galeria-horizontal {
